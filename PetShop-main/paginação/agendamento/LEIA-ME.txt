@@ -1,0 +1,32 @@
+PETVIDA - AGENDAMENTO (VERSÃO PARCIAL)
+
+COMO EXECUTAR
+1. Coloque a pasta PetShop-main em htdocs, se estiver usando XAMPP.
+2. Inicie o Apache.
+3. Acesse http://localhost/PetShop-main/paginação/agendamento/agendamento.php
+   Ou abra http://localhost/PetShop-main/ e clique em "Agendar agora".
+4. Não abra o arquivo PHP com duplo clique: ele precisa passar pelo servidor.
+
+O QUE JÁ FUNCIONA
+- Calendário com navegação entre os meses.
+- Escolher uma data e preencher os dados do agendamento.
+- Salvar e mostrar os agendamentos no calendário.
+- Mostrar os próximos agendamentos na lateral.
+- Impedir dois agendamentos no mesmo dia e horário.
+- Impedir agendamento no passado ou aos domingos.
+
+ARMAZENAMENTO
+- Os registros ficam em dados/agendamentos.json, sem precisar configurar banco de dados.
+- A pasta dados precisa permitir escrita para o PHP/Apache.
+- A configuração .htaccess impede o acesso direto ao JSON no Apache com as
+  permissões de configuração correspondentes. O servidor embutido do PHP
+  NÃO usa .htaccess: use apenas dados fictícios, em ambiente local.
+- Para apagar os testes, substitua o conteúdo de agendamentos.json por [].
+
+FALTA PARA AS PRÓXIMAS ETAPAS
+- Editar e cancelar agendamentos.
+- Cadastro e login de usuários.
+- Banco de dados MySQL e área administrativa.
+- Consulta mais detalhada de disponibilidade e regras de duração por serviço.
+
+Esta é uma versão acadêmica para testes locais, não um sistema de produção.

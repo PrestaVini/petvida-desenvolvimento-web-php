@@ -1,82 +1,114 @@
-# PetVida — Projeto de Desenvolvimento de Sistemas Web
+# PetVida — Desenvolvimento Web com PHP
 
 ## Sobre o projeto
 
-O **PetVida** é um projeto acadêmico da disciplina de **Desenvolvimento de Sistemas Web**. A atividade consiste em utilizar **PHP em um site**, aplicando a linguagem no desenvolvimento de funcionalidades para uma plataforma fictícia de Pet Shop.
-
-O site apresenta informações sobre serviços para animais, páginas institucionais, área de acesso e formulário de contato. A proposta é evoluir a estrutura inicialmente criada com HTML, CSS e JavaScript, acrescentando processamento no servidor com PHP.
+O **PetVida** é um projeto acadêmico de Desenvolvimento de Sistemas Web que simula o site de um pet shop. A aplicação reúne páginas institucionais, apresentação de serviços, formulário de contato e um sistema fictício de agendamento desenvolvido em PHP.
 
 ## Objetivo da atividade
 
-O objetivo principal é praticar o desenvolvimento de aplicações web que utilizem PHP, integrando páginas visuais com funcionalidades executadas no servidor.
+Aplicar HTML, CSS, JavaScript e PHP na construção de uma aplicação web organizada e responsiva, integrando a interface executada no navegador com o processamento realizado no servidor.
 
-Entre as possibilidades de desenvolvimento do projeto estão:
+## Funcionalidades atuais
 
-- Processamento de formulários com PHP;
-- Sistema de login e cadastro;
-- Agendamento de serviços;
-- Cadastro de clientes e animais;
-- Uso de sessões;
-- Integração com banco de dados.
+- Página inicial responsiva;
+- Apresentação dos serviços oferecidos;
+- Páginas “Sobre nós”, “Contato” e “Trabalhe conosco”;
+- Formulário de contato processado em PHP;
+- Calendário de agendamentos com navegação entre meses;
+- Cadastro de tutor, pet, serviço, data e horário;
+- Exibição dos agendamentos no calendário;
+- Lista dos próximos atendimentos;
+- Bloqueio de datas passadas e domingos;
+- Validação para impedir dois agendamentos no mesmo dia e horário;
+- Armazenamento local dos registros em arquivo JSON.
 
-## Situação atual
+## Sistema de agendamento
 
-O projeto está **em desenvolvimento**. A versão presente neste repositório contém a estrutura visual do PetVida e uma implementação inicial em PHP para o formulário de contato. Outras funcionalidades em PHP serão adicionadas durante a atividade.
+A versão atual possui um sistema acadêmico de agendamento localizado em:
+
+```text
+PetShop-main/paginação/agendamento/
+```
+
+Os registros são armazenados em `dados/agendamentos.json`. Portanto, a pasta `dados` precisa permitir escrita pelo PHP/Apache.
+
+Esta é uma versão parcial. A edição e o cancelamento de agendamentos, o cadastro de usuários, o banco de dados MySQL e a área administrativa ainda poderão ser implementados nas próximas etapas.
 
 ## Tecnologias utilizadas
 
-- **PHP** — processamento das funcionalidades no servidor;
 - **HTML5** — estrutura das páginas;
-- **CSS3** — aparência e responsividade;
+- **CSS3** — estilização e responsividade;
 - **JavaScript** — interações no navegador;
-- **VS Code** — edição dos arquivos do projeto.
+- **PHP** — processamento e validação dos agendamentos;
+- **JSON** — armazenamento temporário dos registros;
+- **VS Code** — desenvolvimento do projeto;
+- **XAMPP/Apache** — execução local com suporte a PHP.
 
 ## Estrutura principal
 
 ```text
-PetVida/
+PetShop-main/
 ├── index.html
 ├── app.js
 ├── estilo.css
 ├── responsividade.css
 ├── paginação/
 │   ├── acesso/
+│   ├── agendamento/
+│   │   ├── dados/
+│   │   │   └── agendamentos.json
+│   │   ├── agendamento.php
+│   │   ├── agendamento.css
+│   │   ├── agendamento.js
+│   │   └── salvar.php
 │   ├── contato/
-│   │   └── form.php
 │   ├── serviços/
 │   └── sobre nós/
 ├── imagens index/
 └── ícones/
 ```
 
-## Como executar
+## Como executar com XAMPP
 
-Para que os arquivos PHP funcionem, o projeto deve ser executado por um servidor com suporte a PHP.
+1. Instale e abra o XAMPP;
+2. Copie a pasta `PetShop-main` para a pasta `htdocs`;
+3. Inicie o serviço **Apache**;
+4. Acesse:
 
-### Usando o servidor integrado do PHP
+```text
+http://localhost/PetShop-main/
+```
 
-1. Instale o PHP no computador.
-2. Abra a pasta do projeto no VS Code.
-3. Abra o terminal na raiz do projeto.
-4. Execute:
+5. Clique em **Agendar agora** para abrir o calendário.
+
+Também é possível acessar diretamente:
+
+```text
+http://localhost/PetShop-main/paginação/agendamento/agendamento.php
+```
+
+Os arquivos PHP não devem ser abertos com duplo clique, pois precisam ser processados por um servidor.
+
+## Como executar com o servidor integrado do PHP
+
+Na pasta que contém `PetShop-main`, execute:
 
 ```bash
 php -S localhost:8000
 ```
 
-5. Acesse no navegador:
+Depois, acesse:
 
 ```text
-http://localhost:8000
+http://localhost:8000/PetShop-main/
 ```
 
-### Usando o XAMPP
-
-1. Instale e abra o XAMPP.
-2. Copie a pasta do projeto para a pasta `htdocs`.
-3. Inicie o serviço Apache.
-4. Acesse o projeto pelo endereço correspondente em `localhost`.
+> O servidor integrado do PHP não aplica as regras do arquivo `.htaccess`. Utilize somente dados fictícios durante os testes locais.
 
 ## Observação
 
-Este projeto foi criado para fins acadêmicos e representa um Pet Shop fictício. As funcionalidades serão desenvolvidas e atualizadas ao longo da disciplina.
+Este projeto foi desenvolvido para fins acadêmicos. O sistema de agendamento é demonstrativo e não realiza reservas reais.
+
+## Autor
+
+Desenvolvido por [PrestaVini](https://github.com/PrestaVini).
